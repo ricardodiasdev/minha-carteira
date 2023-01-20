@@ -1,10 +1,24 @@
 import React from 'react'
 
+import SelectInput from '../../components/SelectInput'
+
+import ContentHeader from '../../components/ContentHeader'
+
+import { Container } from './styles'
+
 const Dashboard = () => {
+
+  const option = [
+    {value: 'Ricardo', label: 'Ricardo'},
+    {value: 'Dayse', label: 'Dayse'},
+    {value: 'Letícia', label: 'Letícia'}
+  ];
   return (
-    <div>
-        <h1>Dashboard</h1>
-    </div>
+    <Container>
+        <ContentHeader title='Dashboard' lineColor='#fff'>
+          <SelectInput options={option}/>
+        </ContentHeader>
+    </Container>
   )
 }
 

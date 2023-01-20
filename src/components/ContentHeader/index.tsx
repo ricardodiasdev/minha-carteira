@@ -1,10 +1,25 @@
 import React from "react";
-import { Container } from "./styles";
+import { Container, TitleContainer, Controllers } from "./styles";
 
-const ContentHeader = () => {
+
+interface IContentHeaderProps {
+  title: string;
+  lineColor: string;
+  children: React.ReactNode;
+  
+}
+const ContentHeader: React.FC<IContentHeaderProps> = (
+  {title, lineColor, children}
+) => {
+  
   return (
     <Container>
-      <h1>Content Header</h1>
+      <TitleContainer lineColor={lineColor}>
+        <h1>{title}</h1>
+      </TitleContainer>
+      <Controllers>
+        {children}
+      </Controllers>
     </Container>
   );
 };
