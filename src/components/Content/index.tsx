@@ -1,12 +1,12 @@
-import React from 'react'
-import { Container } from './styles'
+import React from "react";
+import { Container } from "./styles";
 
-const Content = () => {
-  return (
-    <Container>
-        <h1>Content</h1>
-    </Container>
-  )
+interface ChildrenProps {
+  children: React.ReactNode;
 }
 
-export default Content
+const Content: React.FC<ChildrenProps> = ({ children }) => {
+  return <Container>{children}</Container>;
+};
+
+export default Content;

@@ -27,7 +27,6 @@ export const MenuContainer = styled.nav`
   margin-left: 20px;
   display: flex;
   flex-direction: column;
-
 `;
 export const MenuItemLink = styled.a`
   color: ${(props) => props.theme.colors.info};
@@ -36,7 +35,7 @@ export const MenuItemLink = styled.a`
   transition: 0.5s;
   display: flex;
   align-items: center;
- 
+
   &:hover {
     opacity: 0.7;
   }

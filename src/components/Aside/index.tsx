@@ -1,35 +1,47 @@
-import React from 'react'
-import { Container, Header, LogImg, Title, MenuContainer, MenuItemLink} from './styles'
-import logoImg from '../../assets/logo.svg'
-import {MdDashboard, MdArrowDownward, MdArrowUpward, MdExitToApp} from  'react-icons/md'
+import React from "react";
+import {
+  Container,
+  Header,
+  LogImg,
+  Title,
+  MenuContainer,
+  MenuItemLink,
+} from "./styles";
+import logoImg from "../../assets/logo.svg";
+import {
+  MdDashboard,
+  MdArrowDownward,
+  MdArrowUpward,
+  MdExitToApp,
+} from "react-icons/md";
 
 const Aside = () => {
   return (
     <Container>
       <Header>
-        <LogImg src={logoImg} alt="Logo Minha Carteira"/>
+        <LogImg src={logoImg} alt="Logo Minha Carteira" />
         <Title>Minha Carteira</Title>
       </Header>
       <MenuContainer>
         <MenuItemLink href="#">
-          <MdDashboard/>
+          <MdDashboard />
           Dashboard
         </MenuItemLink>
         <MenuItemLink href="#">
-          <MdArrowUpward/>
+          <MdArrowUpward />
           Entradas
         </MenuItemLink>
         <MenuItemLink href="#">
-          <MdArrowDownward/>
+          <MdArrowDownward />
           Saídas
         </MenuItemLink>
         <MenuItemLink href="#">
-          <MdExitToApp/>
+          <MdExitToApp />
           Sair
         </MenuItemLink>
       </MenuContainer>
     </Container>
-  )
-}
+  );
+};
 
-export default Aside
+export default Aside;

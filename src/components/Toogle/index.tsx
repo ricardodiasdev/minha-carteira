@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, ToggleLabel, ToggleSelector} from "./styles";
+import { Container, ToggleLabel, ToggleSelector } from "./styles";
 
 const Toggle = () => {
   const [online, setOnline] = useState(false);
