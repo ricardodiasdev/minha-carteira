@@ -8,6 +8,8 @@ import { useParams } from "react-router-dom";
 
 import gains from "../../repositories/gains";
 import expenses from "../../repositories/expenses";
+import formatCurrency from "../../utils/formatCurrency"
+import formatDate from "../../utils/formatDate";
 
 interface IData {
   id: string,
@@ -63,9 +65,9 @@ const List: React.FC = () => {
       return {
         id: String(Math.random() * listData.length),
         description: item.description,
-        amountFormatted: item.amount,
+        amountFormatted: formatCurrency(Number(item.amount)),
         frequency: item.frequency,
-        dataFormatted: item.date,
+        dataFormatted: formatDate(item.date),
         tagColor: item.frequency === 'recorrente' ? '#4E41F0' : '#E44C4E',
       }
     })
