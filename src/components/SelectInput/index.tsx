@@ -11,7 +11,7 @@ interface ISelectInputProps {
 const SelectInput: React.FC<ISelectInputProps> = ({options}) => {
   return (
     <Container>
-        <select name="" id="">
+        <select>
             {
                 options.map(option => (
                     <option value={option.value}>{option.label}</option>
