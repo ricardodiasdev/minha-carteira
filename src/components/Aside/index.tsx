@@ -1,11 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Container,
   Header,
   LogImg,
   Title,
   MenuContainer,
-  MenuItemLink,
 } from "./styles";
 import logoImg from "../../assets/logo.svg";
 import {
@@ -23,22 +23,22 @@ const Aside = () => {
         <Title>Minha Carteira</Title>
       </Header>
       <MenuContainer>
-        <MenuItemLink href="#">
+        <Link to="/dashboard">
           <MdDashboard />
           Dashboard
-        </MenuItemLink>
-        <MenuItemLink href="#">
+        </Link>
+        <Link to="/list/entry-balance">
           <MdArrowUpward />
           Entradas
-        </MenuItemLink>
-        <MenuItemLink href="#">
+        </Link>
+        <Link to="/list/exit-balance">
           <MdArrowDownward />
           Saídas
-        </MenuItemLink>
-        <MenuItemLink href="#">
+        </Link>
+        <Link to="#">
           <MdExitToApp />
           Sair
-        </MenuItemLink>
+        </Link>
       </MenuContainer>
     </Container>
   );

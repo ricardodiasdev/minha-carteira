@@ -5,6 +5,24 @@ export const Container = styled.div`
 
   background-color: ${(props) => props.theme.colors.secundary};
   border-right: 1px solid ${(props) => props.theme.colors.gray};
+
+  a {
+    color: ${(props) => props.theme.colors.info};
+    text-decoration: none;
+    margin: 7px 0;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    > svg {
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  }
 `;
 
 export const Header = styled.header`
@@ -28,20 +46,4 @@ export const MenuContainer = styled.nav`
   display: flex;
   flex-direction: column;
 `;
-export const MenuItemLink = styled.a`
-  color: ${(props) => props.theme.colors.info};
-  text-decoration: none;
-  margin: 7px 0;
-  transition: 0.5s;
-  display: flex;
-  align-items: center;
 
-  &:hover {
-    opacity: 0.7;
-  }
-
-  > svg {
-    font-size: 18px;
-    margin-right: 5px;
-  }
-`;
