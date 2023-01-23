@@ -24,6 +24,10 @@ const List: React.FC = () => {
 
 
   const [data, setData] = useState<IData[]>([]);
+  const [monthSelected, setMonthSelected] = useState<string>(String(new Date().getMonth() + 1))
+  const [yearSelected, setYearSelected] = useState<string>(String(new Date().getFullYear()))
+
+
   const { type } = useParams();
 
   const title = useMemo(() => {
@@ -61,9 +65,16 @@ const List: React.FC = () => {
   ];
 
   useEffect(() => {
-    const response = listData.map((item) => {
+    const filterDate = listData.filter((item) => {
+      const date = new Date(item.date)
+      const month = String(date.getMonth() + 1)
+      const year = String(date.getFullYear())
+      return month === monthSelected && year === yearSelected
+    })
+    const formattedData =  filterDate.map(item => {
+
       return {
-        id: String(Math.random() * listData.length),
+        id: String(Math.random() * filterDate.length),
         description: item.description,
         amountFormatted: formatCurrency(Number(item.amount)),
         frequency: item.frequency,
@@ -71,15 +82,23 @@ const List: React.FC = () => {
         tagColor: item.frequency === 'recorrente' ? '#4E41F0' : '#E44C4E',
       }
     })
-    setData(response)
+    setData(formattedData)
     
-  },[type, listData])
+  },[monthSelected, yearSelected, data.length, listData])
 
   return (
     <Container>
       <ContentHeader title={title} lineColor={lineColor}>
-        <SelectInput options={months} />
-        <SelectInput options={years} />
+        <SelectInput 
+          options={months} 
+          onChange={e => setMonthSelected(e.target.value)}
+          defaultValue={monthSelected}
+        />
+        <SelectInput 
+          options={years} 
+          onChange={e => setYearSelected(e.target.value)}
+          defaultValue={yearSelected}
+        />
       </ContentHeader>
       <Filters>
         <button type="button" className="tag-filter tag-filter-recurrent">
