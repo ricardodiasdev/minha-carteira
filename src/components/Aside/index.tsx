@@ -9,7 +9,7 @@ import {
   MdExitToApp,
 } from "react-icons/md";
 
-const Aside = () => {
+const Aside:React.FC = () => {
   return (
     <Container>
       <Header>
