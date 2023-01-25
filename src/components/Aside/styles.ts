@@ -46,4 +46,3 @@ export const MenuContainer = styled.nav`
   display: flex;
   flex-direction: column;
 `;
-

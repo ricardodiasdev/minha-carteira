@@ -1,12 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Container,
-  Header,
-  LogImg,
-  Title,
-  MenuContainer,
-} from "./styles";
+import { Container, Header, LogImg, Title, MenuContainer } from "./styles";
 import logoImg from "../../assets/logo.svg";
 import {
   MdDashboard,
