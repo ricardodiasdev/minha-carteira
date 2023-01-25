@@ -1,15 +1,15 @@
 import React, { useMemo, useState } from 'react'
 
 import SelectInput from '../../components/SelectInput'
-
 import ContentHeader from '../../components/ContentHeader'
+import WalletBox from '../../components/WalletBox'
 
 import expenses from '../../repositories/expenses'
 import gains from '../../repositories/gains'
 import listOfMonths from '../../utils/months'
 
 
-import { Container } from './styles'
+import { Container, Content } from './styles'
 
 const Dashboard: React.FC = () => {
   
@@ -46,39 +46,43 @@ const Dashboard: React.FC = () => {
     });
   }, []);
 
-  const handleMonthSelected = (month: string) => {
-    try {
-      const parseMonth = Number(month)
-      setMonthSelected(parseMonth)
-    } catch (error) {
-      throw new Error('Invalid month value.')
-    }
-  }
-
-  const handleYearSelected = (year: string) => {
-    try {
-      const parseYear = Number(year)
-      setYearSelected(parseYear)
-    } catch (error) {
-      throw new Error('Invalid year value. Only integer numbers.')
-    }
-  }
-
-  
   return (
     <Container>
         <ContentHeader title='Dashboard' lineColor='#F7931B'>
           <SelectInput
             options={months}
-            onChange={(e) => handleMonthSelected(e.target.value)}
+            onChange={(e) => setMonthSelected(Number(e.target.value))}
             defaultValue={monthSelected}
           />
           <SelectInput
             options={years}
-            onChange={(e) => handleYearSelected(e.target.value)}
+            onChange={(e) => setYearSelected(Number(e.target.value))}
             defaultValue={yearSelected}
           />
         </ContentHeader>
+        <Content>
+          <WalletBox
+            color='#4E41F0'
+            title='saldo'
+            amount={150.00}
+            footerlabel = "atualizado com base nas entradas e saídas"
+            icon='dolar'
+          />
+           <WalletBox
+            color='#F7931B'
+            title='entradas'
+            amount={5000.00}
+            footerlabel = "atualizado com base nas entradas e saídas"
+            icon='arrowUp'
+          />
+           <WalletBox
+            color='#E44C4E'
+            title='saídas'
+            amount={4850.00}
+            footerlabel = "atualizado com base nas entradas e saídas"
+            icon='arrowDown'
+          />
+        </Content>
     </Container>
   )
 }

@@ -20,8 +20,8 @@ interface IData {
 }
 const List: React.FC = () => {
   const [data, setData] = useState<IData[]>([]);
-  const [monthSelected, setMonthSelected] = useState<string>(String(new Date().getMonth() + 1))
-  const [yearSelected, setYearSelected] = useState<string>(String(new Date().getFullYear()))
+  const [monthSelected, setMonthSelected] = useState(String(new Date().getMonth() + 1))
+  const [yearSelected, setYearSelected] = useState(String(new Date().getFullYear()))
   const [selectedFrequency, setSelectedFrequency] = useState(['recorrente', 'eventual'])
 
 
@@ -42,7 +42,7 @@ const List: React.FC = () => {
   }, [type]);
 
   const lineColor = useMemo(() => {
-    return type === "entry-balance" ? "#F7931B" : "#E44C4E";
+    return type === "entry-balance" ? "#4E41F0" : "#E44C4E";
   }, [type]);
 
   const listData =  useMemo(() => {
@@ -96,6 +96,7 @@ const List: React.FC = () => {
     setData(formattedData)
   },[monthSelected, yearSelected, data.length, listData, selectedFrequency])
 
+  
   return (
     <Container>
       <ContentHeader title={title} lineColor={lineColor}>
