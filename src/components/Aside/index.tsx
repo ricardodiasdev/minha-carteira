@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Header, LogImg, Title, MenuContainer } from "./styles";
+
+import { UseAuth } from "../../hooks/auth"; 
+import { Container, Header, LogImg, Title, MenuContainer, LinkButton} from "./styles";
 import logoImg from "../../assets/logo.svg";
 import {
   MdDashboard,
@@ -10,6 +12,7 @@ import {
 } from "react-icons/md";
 
 const Aside:React.FC = () => {
+  const {signOut} = UseAuth();
   return (
     <Container>
       <Header>
@@ -17,7 +20,7 @@ const Aside:React.FC = () => {
         <Title>Minha Carteira</Title>
       </Header>
       <MenuContainer>
-        <Link to="/dashboard">
+        <Link to="/">
           <MdDashboard />
           Dashboard
         </Link>
@@ -29,10 +32,10 @@ const Aside:React.FC = () => {
           <MdArrowDownward />
           Saídas
         </Link>
-        <Link to="#">
+        <LinkButton onClick={signOut}>
           <MdExitToApp />
           Sair
-        </Link>
+        </LinkButton>
       </MenuContainer>
     </Container>
   );
