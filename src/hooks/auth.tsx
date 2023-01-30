@@ -1,4 +1,5 @@
 import React, {createContext, useState, useContext} from 'react'
+import { Link } from "react-router-dom";
 
 interface IAuthContext {
     logged: boolean;
@@ -33,6 +34,8 @@ const AuthProvider= (props: AuthProps) => {
     const signOut = () => {
         localStorage.removeItem('@minha-carteira:logged')
         setLogged(false)
+        window.location.href = "/"
+        
     }
     return (
         <AuthContext.Provider value={{logged, signIn, signOut}}>
