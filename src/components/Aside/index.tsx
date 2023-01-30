@@ -1,8 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { UseAuth } from "../../hooks/auth"; 
-import { Container, Header, LogImg, Title, MenuContainer, LinkButton} from "./styles";
+import { UseAuth } from "../../hooks/auth";
+import {
+  Container,
+  Header,
+  LogImg,
+  Title,
+  MenuContainer,
+  LinkButton,
+} from "./styles";
 import logoImg from "../../assets/logo.svg";
 import {
   MdDashboard,
@@ -11,8 +18,8 @@ import {
   MdExitToApp,
 } from "react-icons/md";
 
-const Aside:React.FC = () => {
-  const {signOut} = UseAuth();
+const Aside: React.FC = () => {
+  const { signOut } = UseAuth();
   return (
     <Container>
       <Header>

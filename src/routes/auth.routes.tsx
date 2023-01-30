@@ -5,10 +5,10 @@ import SignIn from "../pages/Signin";
 
 const AuthRoutes: React.FC = () => {
   return (
-        <Routes>
-          <Route path="/" element={<SignIn />} />
-        </Routes>
-  )
+    <Routes>
+      <Route path="/" element={<SignIn />} />
+    </Routes>
+  );
 };
 
 export default AuthRoutes;

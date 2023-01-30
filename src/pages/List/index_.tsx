@@ -26,8 +26,12 @@ interface IData {
 
 const List: React.FC = () => {
   const [data, setData] = useState<IData[]>([]);
-  const [monthSelected, setMonthSelected] = useState<number>(new Date().getMonth() + 1);
-  const [yearSelected, setYearSelected] = useState<number>(new Date().getFullYear());
+  const [monthSelected, setMonthSelected] = useState<number>(
+    new Date().getMonth() + 1
+  );
+  const [yearSelected, setYearSelected] = useState<number>(
+    new Date().getFullYear()
+  );
   const [frequencyFilterSelected, setfrequencyFilterSelected] = useState([
     "recorrente",
     "eventual",
@@ -89,8 +93,7 @@ const List: React.FC = () => {
         (item) => item !== frequency
       );
       setfrequencyFilterSelected(filtered);
-    } 
-    else {
+    } else {
       setfrequencyFilterSelected((previous) => [...previous, frequency]);
     }
   };
@@ -99,8 +102,8 @@ const List: React.FC = () => {
     const { data } = pageData;
     const filteredDate = data.filter((item) => {
       const date = new Date(item.date);
-      const month = (date.getMonth() + 1);
-      const year = (date.getFullYear());
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
       return (
         month === monthSelected &&
         year === yearSelected &&
@@ -129,21 +132,21 @@ const List: React.FC = () => {
 
   const handleMonthSelected = (month: string) => {
     try {
-      const parseMonth = Number(month)
-      setMonthSelected(parseMonth)
+      const parseMonth = Number(month);
+      setMonthSelected(parseMonth);
     } catch (error) {
-      throw new Error('Invalid month value.')
+      throw new Error("Invalid month value.");
     }
-  }
+  };
 
   const handleYearSelected = (year: string) => {
     try {
-      const parseYear = Number(year)
-      setYearSelected(parseYear)
+      const parseYear = Number(year);
+      setYearSelected(parseYear);
     } catch (error) {
-      throw new Error('Invalid year value. Only integer numbers.')
+      throw new Error("Invalid year value. Only integer numbers.");
     }
-  }
+  };
 
   return (
     <Container>
@@ -170,10 +173,8 @@ const List: React.FC = () => {
         </button>
         <button
           type="button"
-          className={
-            `tag-filter tag-filter-eventual 
-            ${frequencyFilterSelected.includes("eventual") && "tag-actived"}`
-          }
+          className={`tag-filter tag-filter-eventual 
+            ${frequencyFilterSelected.includes("eventual") && "tag-actived"}`}
           onClick={() => handleFrequencyClick("eventual")}
         >
           Eventuais

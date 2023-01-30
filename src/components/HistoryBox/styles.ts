@@ -40,7 +40,6 @@ export const Legend = styled.li<ILegendProps>`
   margin-bottom: 7px;
   margin-left: 7px;
 
-
   > div {
     background-color: ${(props) => props.color};
     width: 50px;
