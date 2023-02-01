@@ -1,6 +1,6 @@
 import React from "react";
 import GlobalStyles from "./styles/GlobalStyles";
-import { ThemeProvider, useTheme } from "styled-components";
+import { ThemeProvider} from "styled-components";
 import Routes from "./routes";
 
 import { UseTheme } from "./hooks/theme";
